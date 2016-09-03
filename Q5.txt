@@ -1,0 +1,1 @@
+ls | sed -e 'p;y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/' | xargs -n2 mv
