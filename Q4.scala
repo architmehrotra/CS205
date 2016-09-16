@@ -1,15 +1,15 @@
 object Q4 {
-	def main(args: Array[Int]){
-		def Insert (x: Int, sortedlist:List[Int]) :List[Int] = sortedlist match{
+	def main(args: Array[String]){
+		def insert (x: Int, sorted_lst:List[Int]) :List[Int] = sorted_lst match{
            case Nil => List(x)
-           case y::ys => if  (x <= y) x::y::ys else y::Insert(x,ys)
+           case y::ys => if  (x <= y) x::y::ys else y::insert(x,ys)
        }
-		def Sort(lst: List[Int]): List[Int] = {
+		def InsertSort(lst: List[Int]): List[Int] = {
 			lst match {
 			case Nil => Nil
-			case hd::tail => Insert(hd,Sort(tail))
+			case hd::tail => insert(hd,InsertSort(tail))
 			}
 		}
-	Console.println(Sort(List(2,8,6,9,4,6,2,5,1,5,0,3)))   
+	Console.println("Unsorted (1,7,9,5,2,3,9,11) " + "Sorted -" + InsertSort(List(1,7,9,5,2,3,9,11)))   
 	}
 }

@@ -1,17 +1,15 @@
-object Q5 {
-	def main(args: Array[String]){
-		def pivotSort(lst: List[Int], x: Int): List[Int] = {
-			lst match {
-				case Nil => x::lst
-				case hd::tail => if(hd<=x){
-					hd::pivotSort(tail, x)
-					}
-					else {
-						pivotSort(tail, x) ::: List(hd)
-						}
-					
-					}
+object Q5{
+	def pivotSort(inputlist:List[Int], inputnum:Int):List[Int]=
+	{
+		inputlist match {
+			case head::rest if (head <= inputnum) => head::pivotSort(rest,inputnum)
+			case Nil => List(inputnum)
+			case head::rest if (head > inputnum) => pivotSort(rest,inputnum) ::: List(head)
 		}
-		Console.println(pivotSort(List(4,8,5,2,9,6), 7))
+		
+	}
+	def main(args:Array[String]):Unit=
+	{
+		println("Sample list is (24,3,41,16,72); inserting element 6:"+pivotSort(List(24,3,41,16,72),6))
 	}
 }

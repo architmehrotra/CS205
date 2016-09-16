@@ -1,16 +1,15 @@
 object Q3{
 		def main(args: Array[String]) {
-			def insertinsorted(lst: List[Int]): List[Int] =lst match{
-			case Nil => 11::lst
-			case hd::tail => if(hd>=11)
-                                         {
-				         11::lst
-				         }
-				else {
-				     hd::insert(tail)
-				     }
+			def insert(lst: List[Int], x: Int): List[Int] =
+			lst match{
+			case Nil => x::lst
+			case hd::tail => if(hd>=x){
+				x::lst
+				}
+				else{
+					hd::insert(tail, x)
+				}
 			}
-	Console.println(insertinsorted(List(1,2,3,4,6,7,9,10,11)))
-	
+			Console.println("Inserting 5 in 1,2,4,6,8,9 = " + insert(List(1,2,4,6,8,9), 5))
 	}
 }
